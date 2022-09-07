@@ -10,7 +10,7 @@
 import * as sharp from "sharp";
 import * as fs from "fs";
 import * as path from "path";
-import { OutputInfo, Sharp } from 'sharp';
+import { Sharp } from 'sharp';
 import { TConfig, TVariantConfig } from './types/config';
 import { Manifest } from './classes/manifest';
 
