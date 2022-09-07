@@ -19,6 +19,7 @@
   "homepage": "https://github.com/remitt-repos/corporate-identity#readme",
   "devDependencies": {
     "@types/sharp": "^0.30.5",
+    "@typescript-eslint/parser": "^5.36.2",
     "rimraf": "^3.0.2",
     "sharp": "^0.31.0",
     "ts-node": "^10.9.1",

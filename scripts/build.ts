@@ -13,6 +13,8 @@ import * as path from "path";
 import { Sharp } from 'sharp';
 import { TConfig, TVariantConfig } from './types/config';
 import { Manifest } from './classes/manifest';
+import { TCollection } from './types/collection.type';
+import { Collection } from './classes/collection.class';
 
 const BUILD_PATH = "build";
 const SRC_PATH = "src";
@@ -26,6 +28,7 @@ type TResizeResult = {
 
 class Builder {
 	private buildJson: TConfig;
+	private collection: Collection = new Collection();
 
 	constructor() {
 		// Load build.json
@@ -53,7 +56,16 @@ class Builder {
 					for (const size of variantConfig.resize) {
 						if (variantConfig.flatten) image.flatten({ background: variantConfig.flatten });
 						if (variantConfig.metadata) image.withMetadata(variantConfig.metadata);
+
 						const result = await this.resize(image, outputFullPath, format, size, variantConfig.quality);
+
+						const relativePath = path.relative(BUILD_PATH, result.fullpath);
+						this.collection.addImage({
+							file: relativePath,
+							size: result.size.toString(),
+							variant, format,
+							description: `Dimension: ${size}, Format: ${format}`
+						});
 						manifest?.addIcon({ src: result.file, type: format, sizes: size });
 						console.log(`Built ${format} ${size} ${result.size} bytes`);
 					}
@@ -64,6 +76,8 @@ class Builder {
 				manifest.write(path.join(outputPath, variantConfig.manifest.file));
 				console.log(`Built manifest ${variantConfig.manifest.file}`);
 			}
+			const collection = this.collection.getMarkdown();
+			fs.writeFileSync(path.join(BUILD_PATH, 'README.md'), collection);
 		})
 	}
 
