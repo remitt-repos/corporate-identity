@@ -1,126 +1,130 @@
 {
-	"remitt/icons/icon": {
-		"src": "remitt/icon.svg",
-		"resize": [
-			"16x16",
-			"32x32",
-			"64x64",
-			"128x128",
-			"256x256"
-		],
-		"metadata": {
-			"exif": {
-				"IFD0": {
-					"Copyright": "Remitt Foundation"
+	"output": "build",
+	"index": "index.md",
+	"variants": {
+		"remitt/icons/icon": {
+			"src": "remitt/icon.svg",
+			"resize": [
+				"16x16",
+				"32x32",
+				"64x64",
+				"128x128",
+				"256x256"
+			],
+			"metadata": {
+				"exif": {
+					"IFD0": {
+						"Copyright": "Remitt Foundation"
+					}
 				}
-			}
+			},
+			"flatten": "#FFFFFF",
+			"quality": 100,
+			"save": [
+				"jpeg",
+				"png"
+			]
 		},
-		"flatten": "#FFFFFF",
-		"quality": 100,
-		"save": [
-			"jpeg",
-			"png"
-		]
-	},
-	"remitt/icons/icon-transparent": {
-		"src": "remitt/icon.svg",
-		"resize": [
-			"16x16",
-			"32x32",
-			"64x64",
-			"128x128",
-			"150x150",
-			"256x256"
-		],
-		"save": [
-			"png"
-		]
-	},
-	"remitt/icons/ios": {
-		"src": "remitt/icon.svg",
-		"resize": [
-			"120x120",
-			"152x152",
-			"167x167",
-			"180x180",
-			"1024x1024"
-		],
-		"save": [
-			"png"
-		]
-	},
-	"remitt/favicons/icon": {
-		"src": "remitt/icon.svg",
-		"resize": [
-			"16x16",
-			"32x32",
-			"144x144",
-			"152x152"
-		],
-		"manifest": {
-			"file": "manifest.json",
-			"options": {
-				"name": "Remitt Foundation",
-				"theme_color": "#FFFFFF",
-				"background_color": "#FFFFFF"
-			}
+		"remitt/icons/icon-transparent": {
+			"src": "remitt/icon.svg",
+			"resize": [
+				"16x16",
+				"32x32",
+				"64x64",
+				"128x128",
+				"150x150",
+				"256x256"
+			],
+			"save": [
+				"png"
+			]
 		},
-		"save": [
-			"png"
-		]
-	},
-	"remitt/logos/transparent": {
-		"src": "remitt/logo.svg",
-		"resize": [
-			"auto x 60",
-			"500 x auto",
-			"1000 x auto"
-		],
-		"save": [
-			"png"
-		]
-	},
-	"remitt/logos/white-bg": {
-		"src": "remitt/logo.svg",
-		"resize": [
-			"auto x 60",
-			"500 x auto",
-			"1000 x auto"
-		],
-		"quality": 100,
-		"flatten": "#FFFFFF",
-		"save": [
-			"png",
-			"jpeg"
-		]
-	},
-	"usdr/icons/transparent": {
-		"src": "usdr/icon.svg",
-		"resize": [
-			"16x16",
-			"32x32",
-			"64x64",
-			"128x128",
-			"256x256"
-		],
-		"save": [
-			"png"
-		]
-	},
-	"usdr/icons/white": {
-		"src": "usdr/icon.svg",
-		"resize": [
-			"16x16",
-			"32x32",
-			"64x64",
-			"128x128",
-			"256x256"
-		],
-		"flatten": "#FFFFFF",
-		"quality": 100,
-		"save": [
-			"png",
-			"jpeg"
-		]
+		"remitt/icons/ios": {
+			"src": "remitt/icon.svg",
+			"resize": [
+				"120x120",
+				"152x152",
+				"167x167",
+				"180x180",
+				"1024x1024"
+			],
+			"save": [
+				"png"
+			]
+		},
+		"remitt/favicons/icon": {
+			"src": "remitt/icon.svg",
+			"resize": [
+				"16x16",
+				"32x32",
+				"144x144",
+				"152x152"
+			],
+			"manifest": {
+				"file": "manifest.json",
+				"options": {
+					"name": "Remitt Foundation",
+					"theme_color": "#FFFFFF",
+					"background_color": "#FFFFFF"
+				}
+			},
+			"save": [
+				"png"
+			]
+		},
+		"remitt/logos/transparent": {
+			"src": "remitt/logo.svg",
+			"resize": [
+				"auto x 60",
+				"500 x auto",
+				"1000 x auto"
+			],
+			"save": [
+				"png"
+			]
+		},
+		"remitt/logos/white-bg": {
+			"src": "remitt/logo.svg",
+			"resize": [
+				"auto x 60",
+				"500 x auto",
+				"1000 x auto"
+			],
+			"quality": 100,
+			"flatten": "#FFFFFF",
+			"save": [
+				"png",
+				"jpeg"
+			]
+		},
+		"usdr/icons/transparent": {
+			"src": "usdr/icon.svg",
+			"resize": [
+				"16x16",
+				"32x32",
+				"64x64",
+				"128x128",
+				"256x256"
+			],
+			"save": [
+				"png"
+			]
+		},
+		"usdr/icons/white": {
+			"src": "usdr/icon.svg",
+			"resize": [
+				"16x16",
+				"32x32",
+				"64x64",
+				"128x128",
+				"256x256"
+			],
+			"flatten": "#FFFFFF",
+			"quality": 100,
+			"save": [
+				"png",
+				"jpeg"
+			]
+		}
 	}
 }

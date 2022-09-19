@@ -13,35 +13,42 @@ import * as path from "path";
 import { Sharp } from 'sharp';
 import { TConfig, TVariantConfig } from './types/config';
 import { Manifest } from './classes/manifest';
-import { TCollection } from './types/collection.type';
 import { Collection } from './classes/collection.class';
 
-const BUILD_PATH = "build";
-const SRC_PATH = "src";
-const SRC_JSON = "src.json";
+const SRC_PATH = 'src';
+const SRC_JSON = 'src.json';
+const DEFAULT_OUTPUT = 'build';
+const DEFAULT_INDEX = 'index.md';
 
 type TResizeResult = {
 	file: string;
-	fullpath: string;
+	fullPath: string;
 	size: number;
 }
 
 class Builder {
-	private buildJson: TConfig;
+	private readonly buildJson: TConfig;
 	private collection: Collection = new Collection();
 
 	constructor() {
-		// Load build.json
+		// Load src.json
 		this.buildJson = JSON.parse(fs.readFileSync(path.join(SRC_PATH, SRC_JSON)).toString());
+		this.buildJson.output = this.buildJson.output ?? DEFAULT_OUTPUT;
+		this.buildJson.index = this.buildJson.index ?? DEFAULT_INDEX;
+
 		// Create build directory
-		fs.mkdirSync(BUILD_PATH, { recursive: true });
+		fs.mkdirSync(this.buildJson.output, { recursive: true });
 	}
 
+	/**
+	 * Launches the build process
+	 */
 	build() {
 		// Iterate over variants
-		Object.keys(this.buildJson).forEach(async (variant) => {
-			const variantConfig: TVariantConfig = this.buildJson[variant];
-			const outputPath = path.join(BUILD_PATH, path.dirname(variant));
+		const variants = this.buildJson.variants;
+		Object.keys(variants).forEach(async (variant) => {
+			const variantConfig: TVariantConfig = variants[variant];
+			const outputPath = path.join(this.buildJson.output, path.dirname(variant));
 			const outputFile = path.basename(variant);
 			const outputFullPath = path.join(outputPath, outputFile);
 			const inputPath = path.join(SRC_PATH, variantConfig.src);
@@ -59,7 +66,7 @@ class Builder {
 
 						const result = await this.resize(image, outputFullPath, format, size, variantConfig.quality);
 
-						const relativePath = path.relative(BUILD_PATH, result.fullpath);
+						const relativePath = path.relative(this.buildJson.output, result.fullPath);
 						this.collection.addImage({
 							file: relativePath,
 							size: result.size.toString(),
@@ -77,10 +84,19 @@ class Builder {
 				console.log(`Built manifest ${variantConfig.manifest.file}`);
 			}
 			const collection = this.collection.getMarkdown();
-			fs.writeFileSync(path.join(BUILD_PATH, 'README.md'), collection);
+			fs.writeFileSync(path.join(this.buildJson.output, this.buildJson.index), collection);
 		})
 	}
 
+	/**
+	 * Resizes an image passed as Sharp object
+	 * @param image Sharp object
+	 * @param output Base output path
+	 * @param format Output format
+	 * @param size Output size as "w x h" string
+	 * @param quality Output quality (0-100)
+	 * @return {Promise<TResizeResult>} Information about the resized image
+	 */
 	async resize(image: Sharp, output: string, format: string, size: string, quality = 80): Promise<TResizeResult> {
 		// Check if format is supported
 		if (!["png", "jpeg"].includes(format)) {
@@ -103,7 +119,7 @@ class Builder {
 		fs.mkdirSync(path.dirname(output), { recursive: true });
 
 		const result = await image.toFile(outputFullPath);
-		return { file: path.basename(outputFullPath), fullpath: outputFullPath, size: result.size };
+		return { file: path.basename(outputFullPath), fullPath: outputFullPath, size: result.size };
 	}
 
 	/**

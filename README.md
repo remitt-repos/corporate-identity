@@ -103,3 +103,11 @@ To clean the build directory, run the following command:
 ```bash
 yarn clean
 ```
+
+## Static site generation
+
+To generate the static site, run the following command:
+
+```bash
+yarn vite:build
+```

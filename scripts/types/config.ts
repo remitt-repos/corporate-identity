@@ -17,6 +17,12 @@ export type TVariantConfig = {
 	metadata?: WriteableMetadata;
 }
 
-export type TConfig = {
+export type TVariantConfigs = {
 	[variant: string]: TVariantConfig;
+}
+
+export type TConfig = {
+	output: string;
+	index: string;
+	variants: TVariantConfigs;
 }
