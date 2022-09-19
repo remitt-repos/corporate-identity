@@ -4,10 +4,11 @@
   "description": "Remitt Branding",
   "main": "index.js",
   "scripts": {
-    "build": "ts-node scripts/build.ts",
-    "clean": "rimraf build",
+    "build": "yarn dicc:clean && yarn dicc:build && yarn vite:build",
+    "dicc:build": "ts-node scripts/build.ts",
+    "dicc:clean": "rimraf build",
     "vite:dev": "vitepress dev build",
-    "vite:build": "vitepress build build",
+    "vite:build": "vitepress build build --title 'Remitt Branding'",
     "vite:serve": "vitepress serve build"
   },
   "license": "UNLICENSED",

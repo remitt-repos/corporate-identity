@@ -21,8 +21,14 @@ export type TVariantConfigs = {
 	[variant: string]: TVariantConfig;
 }
 
+export type TCopyFiles = {
+	src: string;
+	dest: string;
+}
+
 export type TConfig = {
-	output: string;
-	index: string;
+	output?: string;
+	index?: string;
+	copy?: TCopyFiles[];
 	variants: TVariantConfigs;
 }

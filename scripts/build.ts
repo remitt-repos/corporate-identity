@@ -11,7 +11,7 @@ import * as sharp from "sharp";
 import * as fs from "fs";
 import * as path from "path";
 import { Sharp } from 'sharp';
-import { TConfig, TVariantConfig } from './types/config';
+import { TConfig, TCopyFiles, TVariantConfig } from './types/config';
 import { Manifest } from './classes/manifest';
 import { Collection } from './classes/collection.class';
 
@@ -29,8 +29,12 @@ type TResizeResult = {
 class Builder {
 	private readonly buildJson: TConfig;
 	private collection: Collection = new Collection();
+	private readonly cwd: string;
 
 	constructor() {
+		// Get current working directory
+		this.cwd = process.cwd();
+
 		// Load src.json
 		this.buildJson = JSON.parse(fs.readFileSync(path.join(SRC_PATH, SRC_JSON)).toString());
 		this.buildJson.output = this.buildJson.output ?? DEFAULT_OUTPUT;
@@ -44,6 +48,9 @@ class Builder {
 	 * Launches the build process
 	 */
 	build() {
+		// Copy files
+		this.copyFiles(this.buildJson.copy);
+
 		// Iterate over variants
 		const variants = this.buildJson.variants;
 		Object.keys(variants).forEach(async (variant) => {
@@ -87,6 +94,31 @@ class Builder {
 			fs.writeFileSync(path.join(this.buildJson.output, this.buildJson.index), collection);
 		})
 	}
+
+	/**
+	 * Copies files from configurable sources to build directory
+	 * @param copies
+	 */
+	copyFiles(copies: TCopyFiles[] = []) {
+		copies.forEach((copy) => {
+			const src = copy.src.startsWith('@') ? path.join(this.cwd, copy.src.slice(1)) : path.join(SRC_PATH, copy.src);
+			const dest = path.join(this.buildJson.output, copy.dest);
+
+			if (!fs.existsSync(dest)) {
+				const destPath = path.dirname(dest);
+				console.log(`Creating directory ${destPath}`);
+				fs.mkdirSync(destPath, { recursive: true });
+			}
+
+			if (fs.existsSync(src)) {
+				console.log(`Copying ${src} to ${copy.dest}...`);
+				fs.copyFileSync(src, dest);
+			} else {
+				console.error(`Source ${src} does not exist`);
+			}
+		});
+	}
+
 
 	/**
 	 * Resizes an image passed as Sharp object

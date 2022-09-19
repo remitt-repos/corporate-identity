@@ -1,6 +1,9 @@
 {
 	"output": "build",
 	"index": "index.md",
+	"copy": [
+		{ "src": "@/.vitepress/config.js", "dest": ".vitepress/config.js" }
+	],
 	"variants": {
 		"remitt/icons/icon": {
 			"src": "remitt/icon.svg",
