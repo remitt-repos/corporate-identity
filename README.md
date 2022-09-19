@@ -1,5 +1,7 @@
 # Remitt Project Corporate Identity
 
+Source code base for https://identity.remitt.foundation/
+
 Remitt Identity Kit is a collection of assets and guidelines for the Remitt Project.
 
 The project includes a builder script system that allows you to generate a customised version of the Remitt Identity Kit for your project.
