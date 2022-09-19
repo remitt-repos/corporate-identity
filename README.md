@@ -97,13 +97,13 @@ Available options:
 To build the Remitt Identity Kit, run the following command:
 
 ```bash
-yarn build
+yarn dicc:build
 ```
 
 To clean the build directory, run the following command:
 
 ```bash
-yarn clean
+yarn dicc:clean
 ```
 
 ## Static site generation
@@ -112,4 +112,12 @@ To generate the static site, run the following command:
 
 ```bash
 yarn vite:build
+```
+
+## Building and generating static site
+
+To build and generate the static site, run the following command:
+
+```bash
+yarn build
 ```
