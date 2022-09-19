@@ -2,25 +2,6 @@
 This automatically generated collection contains 49 images.
 
 
-## remitt/favicons/icon
-**Dimension: 16x16, Format: png**:
-
-![Dimension: 16x16, Format: png](remitt/favicons/icon-16x16.png)
-
-**Dimension: 32x32, Format: png**:
-
-![Dimension: 32x32, Format: png](remitt/favicons/icon-32x32.png)
-
-**Dimension: 144x144, Format: png**:
-
-![Dimension: 144x144, Format: png](remitt/favicons/icon-144x144.png)
-
-**Dimension: 152x152, Format: png**:
-
-![Dimension: 152x152, Format: png](remitt/favicons/icon-152x152.png)
-
-
-
 ## remitt/icons/icon-transparent
 **Dimension: 16x16, Format: png**:
 
@@ -48,26 +29,22 @@ This automatically generated collection contains 49 images.
 
 
 
-## remitt/icons/ios
-**Dimension: 120x120, Format: png**:
+## remitt/favicons/icon
+**Dimension: 16x16, Format: png**:
 
-![Dimension: 120x120, Format: png](remitt/icons/ios-120x120.png)
+![Dimension: 16x16, Format: png](remitt/favicons/icon-16x16.png)
+
+**Dimension: 32x32, Format: png**:
+
+![Dimension: 32x32, Format: png](remitt/favicons/icon-32x32.png)
+
+**Dimension: 144x144, Format: png**:
+
+![Dimension: 144x144, Format: png](remitt/favicons/icon-144x144.png)
 
 **Dimension: 152x152, Format: png**:
 
-![Dimension: 152x152, Format: png](remitt/icons/ios-152x152.png)
-
-**Dimension: 167x167, Format: png**:
-
-![Dimension: 167x167, Format: png](remitt/icons/ios-167x167.png)
-
-**Dimension: 180x180, Format: png**:
-
-![Dimension: 180x180, Format: png](remitt/icons/ios-180x180.png)
-
-**Dimension: 1024x1024, Format: png**:
-
-![Dimension: 1024x1024, Format: png](remitt/icons/ios-1024x1024.png)
+![Dimension: 152x152, Format: png](remitt/favicons/icon-152x152.png)
 
 
 
@@ -114,6 +91,29 @@ This automatically generated collection contains 49 images.
 
 
 
+## remitt/icons/ios
+**Dimension: 120x120, Format: png**:
+
+![Dimension: 120x120, Format: png](remitt/icons/ios-120x120.png)
+
+**Dimension: 152x152, Format: png**:
+
+![Dimension: 152x152, Format: png](remitt/icons/ios-152x152.png)
+
+**Dimension: 167x167, Format: png**:
+
+![Dimension: 167x167, Format: png](remitt/icons/ios-167x167.png)
+
+**Dimension: 180x180, Format: png**:
+
+![Dimension: 180x180, Format: png](remitt/icons/ios-180x180.png)
+
+**Dimension: 1024x1024, Format: png**:
+
+![Dimension: 1024x1024, Format: png](remitt/icons/ios-1024x1024.png)
+
+
+
 ## usdr/icons/transparent
 **Dimension: 16x16, Format: png**:
 
@@ -134,6 +134,21 @@ This automatically generated collection contains 49 images.
 **Dimension: 256x256, Format: png**:
 
 ![Dimension: 256x256, Format: png](usdr/icons/transparent-256x256.png)
+
+
+
+## remitt/logos/transparent
+**Dimension: auto x 60, Format: png**:
+
+![Dimension: auto x 60, Format: png](remitt/logos/transparent-300x60.png)
+
+**Dimension: 500 x auto, Format: png**:
+
+![Dimension: 500 x auto, Format: png](remitt/logos/transparent-500x100.png)
+
+**Dimension: 1000 x auto, Format: png**:
+
+![Dimension: 1000 x auto, Format: png](remitt/logos/transparent-1000x200.png)
 
 
 
@@ -177,21 +192,6 @@ This automatically generated collection contains 49 images.
 **Dimension: 256x256, Format: jpeg**:
 
 ![Dimension: 256x256, Format: jpeg](usdr/icons/white-256x256.jpeg)
-
-
-
-## remitt/logos/transparent
-**Dimension: auto x 60, Format: png**:
-
-![Dimension: auto x 60, Format: png](remitt/logos/transparent-300x60.png)
-
-**Dimension: 500 x auto, Format: png**:
-
-![Dimension: 500 x auto, Format: png](remitt/logos/transparent-500x100.png)
-
-**Dimension: 1000 x auto, Format: png**:
-
-![Dimension: 1000 x auto, Format: png](remitt/logos/transparent-1000x200.png)
 
 
 
