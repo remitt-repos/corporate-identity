@@ -1,3 +1,1 @@
-export type TCollection = {
-
-}
+export type TCollection = NonNullable<unknown>;

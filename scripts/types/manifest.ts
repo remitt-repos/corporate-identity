@@ -2,7 +2,7 @@ export type TManifestIcon = {
 	src: string;
 	sizes: string;
 	type: string;
-}
+};
 
 export type TManifest = {
 	shortname?: string;
@@ -12,4 +12,4 @@ export type TManifest = {
 	background_color?: string;
 	start_url?: string;
 	icons?: TManifestIcon[];
-}
+};

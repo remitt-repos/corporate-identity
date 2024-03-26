@@ -8,7 +8,7 @@ type TImage = {
 	description: string;
 	format: string;
 	size: string;
-}
+};
 
 export class Collection {
 	private images: TImage[] = [];
@@ -26,9 +26,11 @@ export class Collection {
 		this.variants.forEach((variant) => {
 			markdown += `\n\n## ${variant}\n`;
 
-			this.images.filter((image) => image.variant == variant).forEach((image) => {
-				markdown += `**${image.description}**:\n\n![${image.description}](${image.file})\n\n`;
-			});
+			this.images
+				.filter((image) => image.variant == variant)
+				.forEach((image) => {
+					markdown += `**${image.description}**:\n\n![${image.description}](${image.file})\n\n`;
+				});
 		});
 
 		return markdown;

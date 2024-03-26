@@ -7,9 +7,9 @@
  * Written by Xander Tovski, 2019-*
  **/
 
-import * as sharp from "sharp";
-import * as fs from "fs";
-import * as path from "path";
+import * as sharp from 'sharp';
+import * as fs from 'fs';
+import * as path from 'path';
 import { Sharp } from 'sharp';
 import { TConfig, TCopyFiles, TVariantConfig } from './types/config';
 import { Manifest } from './classes/manifest';
@@ -24,7 +24,7 @@ type TResizeResult = {
 	file: string;
 	fullPath: string;
 	size: number;
-}
+};
 
 class Builder {
 	private readonly buildJson: TConfig;
@@ -77,8 +77,9 @@ class Builder {
 						this.collection.addImage({
 							file: relativePath,
 							size: result.size.toString(),
-							variant, format,
-							description: `Dimension: ${size}, Format: ${format}`
+							variant,
+							format,
+							description: `Dimension: ${size}, Format: ${format}`,
 						});
 						manifest?.addIcon({ src: result.file, type: format, sizes: size });
 						console.log(`Built ${format} ${size} ${result.size} bytes`);
@@ -92,7 +93,7 @@ class Builder {
 			}
 			const collection = this.collection.getMarkdown();
 			fs.writeFileSync(path.join(this.buildJson.output, this.buildJson.index), collection);
-		})
+		});
 	}
 
 	/**
@@ -119,7 +120,6 @@ class Builder {
 		});
 	}
 
-
 	/**
 	 * Resizes an image passed as Sharp object
 	 * @param image Sharp object
@@ -131,7 +131,7 @@ class Builder {
 	 */
 	async resize(image: Sharp, output: string, format: string, size: string, quality = 80): Promise<TResizeResult> {
 		// Check if format is supported
-		if (!["png", "jpeg"].includes(format)) {
+		if (!['png', 'jpeg'].includes(format)) {
 			console.error(`Format ${format} is not supported`);
 			return undefined;
 		}
@@ -142,7 +142,7 @@ class Builder {
 		const outputFullPath = `${output}-${width}x${height}.${format}`;
 
 		// Set output quality (~~ converts float to int)
-		const outputQuality = format === "png" ? ~~(quality / 10) : quality;
+		const outputQuality = format === 'png' ? ~~(quality / 10) : quality;
 
 		// Call sharp with dynamic function name (format)
 		image.resize(width, height)[format]({ quality: outputQuality });
@@ -162,17 +162,16 @@ class Builder {
 	 * @private
 	 */
 	private parseSize(size: string, imageHeight: number = 100, imageWidth: number = 100) {
-		let [width, height] = size.toLowerCase().split("x");
+		let [width, height] = size.toLowerCase().split('x');
 		width = width.trim();
 		height = height.trim();
 		const aspectRatio = imageWidth / imageHeight;
-		const auto = ["auto", "0"];
+		const auto = ['auto', '0'];
 
-		if (auto.includes(width) && auto.includes(height)) return { width: imageWidth, height: imageHeight }
+		if (auto.includes(width) && auto.includes(height)) return { width: imageWidth, height: imageHeight };
 		else if (auto.includes(width)) {
 			width = Math.round(parseInt(height) * aspectRatio).toString();
-		}
-		else if (auto.includes(height)) {
+		} else if (auto.includes(height)) {
 			height = Math.round(parseInt(width) / aspectRatio).toString();
 		}
 
