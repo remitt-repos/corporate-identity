@@ -75,8 +75,8 @@
 				"png"
 			]
 		},
-		"remitt/logos/transparent": {
-			"src": "remitt/logo.svg",
+		"remitt/logos-full/color-transparent": {
+			"src": "remitt/logo-full.svg",
 			"resize": [
 				"auto x 60",
 				"500 x auto",
@@ -86,8 +86,8 @@
 				"png"
 			]
 		},
-		"remitt/logos/white-bg": {
-			"src": "remitt/logo.svg",
+		"remitt/logos-full/color-white": {
+			"src": "remitt/logo-full.svg",
 			"resize": [
 				"auto x 60",
 				"500 x auto",
@@ -98,6 +98,43 @@
 			"save": [
 				"png",
 				"jpeg"
+			]
+		},
+		"remitt/logos/color-transparent": {
+			"src": "remitt/logo-color.svg",
+			"resize": [
+				"auto x 60",
+				"500 x auto",
+				"1000 x auto"
+			],
+			"save": [
+				"png"
+			]
+		},
+		"remitt/logos/color-white": {
+			"src": "remitt/logo-color.svg",
+			"resize": [
+				"auto x 60",
+				"500 x auto",
+				"1000 x auto"
+			],
+			"quality": 100,
+			"flatten": "#FFFFFF",
+			"save": [
+				"png",
+				"jpeg"
+			]
+		},
+		"remitt/logos/white-transparent": {
+			"src": "remitt/logo-white.svg",
+			"resize": [
+				"auto x 60",
+				"500 x auto",
+				"1000 x auto"
+			],
+			"quality": 100,
+			"save": [
+				"png"
 			]
 		},
 		"usdr/icons/transparent": {
